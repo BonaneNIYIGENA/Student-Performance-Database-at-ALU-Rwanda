@@ -47,3 +47,9 @@ INSERT INTO students (student_name, intake_year) VALUES
 ('Mia Uwimana', 2023),
 ('Nathan Iradukunda', 2022),
 ('Olivia Nyirahabimana', 2023);
+
+-- Insert sample data into linux_grades table
+INSERT INTO linux_grades (student_id, grade_obtained) VALUES
+(1, 85.5), (2, 42.0), (3, 78.0), (4, 91.0), (5, 67.5),
+(6, 35.0), (7, 88.0), (8, 49.5), (9, 72.0), (10, 95.0),
+(11, 58.0), (12, 81.5), (13, 45.0), (14, 76.0), (15, 63.5);
