@@ -107,3 +107,17 @@ SELECT 'Python' as course_name,
        MIN(grade_obtained) as min_grade,
        MAX(grade_obtained) as max_grade
 FROM python_grades;
+
+-- Query 6: Top-performing student across both courses (based on average of their grades)
+SELECT s.student_id, s.student_name,
+       ROUND(AVG(all_grades.grade), 2) as overall_average,
+       COUNT(*) as courses_taken
+FROM students s
+JOIN (
+    SELECT student_id, grade_obtained as grade FROM linux_grades
+    UNION ALL
+    SELECT student_id, grade_obtained as grade FROM python_grades
+) all_grades ON s.student_id = all_grades.student_id
+GROUP BY s.student_id, s.student_name
+ORDER BY overall_average DESC
+LIMIT 1;
