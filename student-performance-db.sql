@@ -82,3 +82,13 @@ LEFT JOIN python_grades p ON s.student_id = p.student_id
 WHERE (l.student_id IS NULL AND p.student_id IS NOT NULL) 
    OR (l.student_id IS NOT NULL AND p.student_id IS NULL)
 ORDER BY course_taken, grade DESC;
+
+-- Query 3: Students who took both courses
+SELECT s.student_id, s.student_name,
+       l.grade_obtained as linux_grade,
+       p.grade_obtained as python_grade,
+       ROUND((l.grade_obtained + p.grade_obtained) / 2, 2) as average_grade
+FROM students s
+JOIN linux_grades l ON s.student_id = l.student_id
+JOIN python_grades p ON s.student_id = p.student_id
+ORDER BY average_grade DESC;
