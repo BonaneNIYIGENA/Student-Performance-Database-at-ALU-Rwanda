@@ -20,3 +20,12 @@ CREATE TABLE linux_grades (
     grade_obtained DECIMAL(5,2) CHECK (grade_obtained BETWEEN 0 AND 100),
     FOREIGN KEY (student_id) REFERENCES students(student_id)
 );
+
+-- Create python_grades table
+CREATE TABLE python_grades (
+    course_id INT PRIMARY KEY AUTO_INCREMENT,
+    course_name VARCHAR(50) DEFAULT 'Python',
+    student_id INT,
+    grade_obtained DECIMAL(5,2) CHECK (grade_obtained BETWEEN 0 AND 100),
+    FOREIGN KEY (student_id) REFERENCES students(student_id)
+);
