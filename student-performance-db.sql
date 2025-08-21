@@ -92,3 +92,18 @@ FROM students s
 JOIN linux_grades l ON s.student_id = l.student_id
 JOIN python_grades p ON s.student_id = p.student_id
 ORDER BY average_grade DESC;
+
+-- Query 4: Average grade per course (Linux and Python separately)
+SELECT 'Linux' as course_name, 
+       COUNT(*) as total_students,
+       ROUND(AVG(grade_obtained), 2) as average_grade,
+       MIN(grade_obtained) as min_grade,
+       MAX(grade_obtained) as max_grade
+FROM linux_grades
+UNION ALL
+SELECT 'Python' as course_name,
+       COUNT(*) as total_students,
+       ROUND(AVG(grade_obtained), 2) as average_grade,
+       MIN(grade_obtained) as min_grade,
+       MAX(grade_obtained) as max_grade
+FROM python_grades;
