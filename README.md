@@ -1,11 +1,11 @@
-## Student Performance Database
+# Student Performance Database
 
 
 Pre-Class Activity to help us practice designing and querying databases.
 This project focuses on tracking how students at ALU Rwanda are performing in Linux and Python courses. Using MySQL, 
 we built a database with sample data and ran a series of queries to analyze student performance.
 
-## Objective
+# Objective
 
 1.To build a functional MySQL database that:
 
@@ -16,7 +16,7 @@ we built a database with sample data and ran a series of queries to analyze stud
 
 Database Structure
 
-## Database Name :student_performance_db
+# Database Name :student_performance_db
 
 The database contains three tables:
 
@@ -48,7 +48,7 @@ student_id (Foreign Key referencing students)
 
 grade_obtained (0–100)
 
-## How to Run This Project
+# How to Run This Project
 
 # 1.Clone:
 https://github.com/BonaneNIYIGENA/Student-Performance-Database-at-ALU-Rwanda.git
