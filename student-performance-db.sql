@@ -68,3 +68,17 @@ FROM students s
 JOIN linux_grades l ON s.student_id = l.student_id
 WHERE l.grade_obtained < 50
 ORDER BY l.grade_obtained;
+
+-- Query 2: Students who took only one course (either Linux or Python, not both)
+SELECT s.student_id, s.student_name, 
+       CASE 
+           WHEN l.student_id IS NOT NULL THEN 'Linux Only' 
+           ELSE 'Python Only' 
+       END as course_taken,
+       COALESCE(l.grade_obtained, p.grade_obtained) as grade
+FROM students s
+LEFT JOIN linux_grades l ON s.student_id = l.student_id
+LEFT JOIN python_grades p ON s.student_id = p.student_id
+WHERE (l.student_id IS NULL AND p.student_id IS NOT NULL) 
+   OR (l.student_id IS NOT NULL AND p.student_id IS NULL)
+ORDER BY course_taken, grade DESC;
