@@ -61,3 +61,10 @@ INSERT INTO python_grades (student_id, grade_obtained) VALUES
 (6, 42.0), (7, 91.0), (8, 51.0), 
 (10, 97.0), (11, 62.0), (12, 84.0),
 (14, 79.0), (15, 68.0);
+
+-- Query 1: Students who scored less than 50% in the Linux course
+SELECT s.student_id, s.student_name, l.grade_obtained as linux_grade
+FROM students s
+JOIN linux_grades l ON s.student_id = l.student_id
+WHERE l.grade_obtained < 50
+ORDER BY l.grade_obtained;
